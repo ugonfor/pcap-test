@@ -28,11 +28,25 @@ bool memdump(uint8_t* mem, uint32_t len){
 		if(idx % 0x10 == 0) printf("0x%02x  ", idx);
 		printf("%02x ", *(mem + idx));
 		if(idx % 0x10 == 0xf) {
-			for (int i = -15; i <= 0; i++) printf("%c", *(mem+idx+i));
+			printf(" ");
+			for (int i = -15; i <= 0; i++) {
+				if ( 31 < *(mem+idx+i) &&  *(mem+idx+i) < 127 ) printf("%c", *(mem+idx+i));
+				else printf(".");
+			}
 			printf("\n");
 		}
 
 		idx++;
+	}
+	
+	if(idx % 0x10 != 0){
+		for (int i = -(0x10 - idx%0x10) + 1; i <= 0; i++) printf("   ");
+		printf(" ");
+
+		for (int i = -(idx%0x10) + 1; i <= 0; i++) {
+			if ( 31 < *(mem+idx+i) &&  *(mem+idx+i) < 127 ) printf("%c", *(mem+idx+i));
+			else printf(".");
+		}
 	}
 	printf("\n");
 
