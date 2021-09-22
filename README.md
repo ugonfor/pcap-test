@@ -26,10 +26,12 @@ TCP Segment
         Src Port: 443
         Dst Port: 443
 
-Data size: 0
+Data size: 44
 Memory Dump
       00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f  0123456789ABCDEF
-0x00  15 03 03 00 1a 48 df 24 
+0x00  82 2a 01 00 02 ed a7 00 02 3a f5 00 00 00 05 05  .*.......:......
+0x10  00 01 3b 6e 01 00 02 ed a8 00 02 3a f5 00 00 00  ..;n.......:....
+0x20  0b 09 00 01 3b 6e 00 00 00 02 5b 5d              ...;n....[].
 
-54 bytes captured
+98 bytes captured
 ```
